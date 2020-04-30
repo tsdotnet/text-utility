@@ -113,6 +113,7 @@ export function format(source, ...args) {
     return supplant(source, args);
 }
 function canMatch(source, match) {
+    // noinspection SuspiciousTypeOfGuard
     if (typeof source != 'string' || !match)
         return false;
     if (source === match)

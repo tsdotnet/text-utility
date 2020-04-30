@@ -17,15 +17,15 @@ export declare function getHashCode(source: string): number;
 export declare function repeat(source: string, count: number): string;
 /**
  * Repeats a character code to a string sequence.
- * @param chars
+ * @param char
  * @param count
  */
 export declare function fromChars(char: number, count: number): string;
 /**
  * Converts a sequence of character codes to a string.
  * @param chars
- * @param count
- */ export declare function fromChars(chars: number[]): string;
+ */
+export declare function fromChars(chars: number[]): string;
 /**
  * Escapes a RegExp sequence.
  * @param source

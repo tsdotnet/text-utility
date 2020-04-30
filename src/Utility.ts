@@ -12,55 +12,64 @@ export const EMPTY = '';
  * @param source
  * @returns {number}
  */
-export function getHashCode(source: string): number {
-    /* tslint:disable:no-bitwise */
-    let hash = 0 | 0;
-    if (source.length === 0) return hash;
-    for (let i = 0, l = source.length; i < l; i++) {
-        const ch = source.charCodeAt(i);
-        hash = (hash << 5) - hash + ch;
-        hash |= 0; // Convert to 32bit integer
-    }
-    return hash;
+export function getHashCode (source: string): number
+{
+	/* tslint:disable:no-bitwise */
+	let hash = 0 | 0;
+	if(source.length===0) return hash;
+	for(let i = 0, l = source.length; i<l; i++)
+	{
+		const ch = source.charCodeAt(i);
+		hash = (hash<<5) - hash + ch;
+		hash |= 0; // Convert to 32bit integer
+	}
+	return hash;
 }
 
 /**
  * Repeats a sequence of characters.
  * @param source
- * @param count 
+ * @param count
  */
-export function repeat(source: string, count: number): string {
-    let result = EMPTY;
-    if (!isNaN(count)) {
-        for (let i = 0; i < count; i++) {
-            result += source;
-        }
-    }
-    return result;
+export function repeat (source: string, count: number): string
+{
+	let result = EMPTY;
+	if(!isNaN(count))
+	{
+		for(let i = 0; i<count; i++)
+		{
+			result += source;
+		}
+	}
+	return result;
 }
 
 /**
  * Repeats a character code to a string sequence.
- * @param chars
- * @param count 
+ * @param char
+ * @param count
  */
-export function fromChars(char: number, count: number): string;
-
+export function fromChars (char: number, count: number): string;
 /**
  * Converts a sequence of character codes to a string.
  * @param chars
- * @param count 
- */export function fromChars(chars: number[]): string;
-export function fromChars(chOrChars: any, count: number = 1): string {
-    if (chOrChars instanceof Array) {
-        let result = EMPTY;
-        for (const char of chOrChars) {
-            result += String.fromCharCode(char);
-        }
-        return result;
-    } else {
-        return repeat(String.fromCharCode(chOrChars), count);
-    }
+ */
+export function fromChars (chars: number[]): string;
+export function fromChars (chOrChars: any, count: number = 1): string
+{
+	if(chOrChars instanceof Array)
+	{
+		let result = EMPTY;
+		for(const char of chOrChars)
+		{
+			result += String.fromCharCode(char);
+		}
+		return result;
+	}
+	else
+	{
+		return repeat(String.fromCharCode(chOrChars), count);
+	}
 }
 
 /**
@@ -68,8 +77,9 @@ export function fromChars(chOrChars: any, count: number = 1): string {
  * @param source
  * @returns {string}
  */
-export function escapeRegExp(source: string): string {
-    return source.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&');
+export function escapeRegExp (source: string): string
+{
+	return source.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&');
 }
 
 /**
@@ -80,17 +90,19 @@ export function escapeRegExp(source: string): string {
  * @param ignoreCase
  * @returns {string}
  */
-export function trim(source: string, chars?: string | string[], ignoreCase?: boolean): string {
-    if (chars === EMPTY) return source;
-    if (chars) {
-        const escaped = escapeRegExp(chars instanceof Array ? chars.join() : (chars as string));
-        return source.replace(
-            new RegExp('^[' + escaped + ']+|[' + escaped + ']+$', 'g' + (ignoreCase ? 'i' : '')),
-            EMPTY,
-        );
-    }
+export function trim (source: string, chars?: string | string[], ignoreCase?: boolean): string
+{
+	if(chars===EMPTY) return source;
+	if(chars)
+	{
+		const escaped = escapeRegExp(chars instanceof Array ? chars.join() : chars as string);
+		return source.replace(
+			new RegExp('^[' + escaped + ']+|[' + escaped + ']+$', 'g' + (ignoreCase ? 'i' : '')),
+			EMPTY
+		);
+	}
 
-    return source.replace(/^\s+|\s+$/g, EMPTY);
+	return source.replace(/^\s+|\s+$/g, EMPTY);
 }
 
 // noinspection SpellCheckingInspection
@@ -103,25 +115,28 @@ export function trim(source: string, chars?: string | string[], ignoreCase?: boo
  * @param params
  * @returns {string}
  */
-export function supplant(source: string, params: { [key: string]: any } | any[]): string {
-    const oIsArray = params instanceof Array;
-    return source.replace(/{([^{}]*)}/g, (a: string, b: string): any => {
-        let n: any = b;
-        if (oIsArray) {
-            const i = parseInt(b, 10);
-            if (!isNaN(i)) n = i;
-        }
+export function supplant (source: string, params: { [key: string]: any } | any[]): string
+{
+	const oIsArray = params instanceof Array;
+	return source.replace(/{([^{}]*)}/g, (a: string, b: string): any => {
+		let n: any = b;
+		if(oIsArray)
+		{
+			const i = parseInt(b, 10);
+			if(!isNaN(i)) n = i;
+		}
 
-        const r = (params as any)[n];
-        switch (typeof r) {
-            case 'string':
-            case 'number':
-            case 'boolean':
-                return r;
-            default:
-                return r && typeof r.toString == 'function' ? (r as any).toString() : a;
-        }
-    });
+		const r = (params as any)[n];
+		switch(typeof r)
+		{
+			case 'string':
+			case 'number':
+			case 'boolean':
+				return r;
+			default:
+				return r && typeof r.toString=='function' ? (r as any).toString() : a;
+		}
+	});
 }
 
 /**
@@ -131,14 +146,17 @@ export function supplant(source: string, params: { [key: string]: any } | any[])
  * @param args
  * @returns {string}
  */
-export function format(source: string, ...args: any[]): string {
-    return supplant(source, args);
+export function format (source: string, ...args: any[]): string
+{
+	return supplant(source, args);
 }
 
-function canMatch(source: string, match: string): boolean | null | void {
-    if (typeof source != 'string' || !match) return false;
-    if (source === match) return true;
-    if (match.length < source.length) return null;
+function canMatch (source: string, match: string): boolean | null | void
+{
+	// noinspection SuspiciousTypeOfGuard
+	if(typeof source!='string' || !match) return false;
+	if(source===match) return true;
+	if(match.length<source.length) return null;
 }
 
 /**
@@ -147,9 +165,10 @@ function canMatch(source: string, match: string): boolean | null | void {
  * @param pattern
  * @returns {boolean}
  */
-export function startsWith(source: string, pattern: string): boolean {
-    const m = canMatch(source, pattern);
-    return typeof m == 'boolean' ? m : source.indexOf(pattern) === 0;
+export function startsWith (source: string, pattern: string): boolean
+{
+	const m = canMatch(source, pattern);
+	return typeof m=='boolean' ? m : source.indexOf(pattern)===0;
 }
 
 /**
@@ -158,7 +177,8 @@ export function startsWith(source: string, pattern: string): boolean {
  * @param pattern
  * @returns {boolean}
  */
-export function endsWith(source: string, pattern: string): boolean {
-    const m = canMatch(source, pattern);
-    return typeof m == 'boolean' ? m : source.lastIndexOf(pattern) === source.length - pattern.length;
+export function endsWith (source: string, pattern: string): boolean
+{
+	const m = canMatch(source, pattern);
+	return typeof m=='boolean' ? m : source.lastIndexOf(pattern)===source.length - pattern.length;
 }

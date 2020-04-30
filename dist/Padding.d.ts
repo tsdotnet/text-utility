@@ -1,3 +1,8 @@
+/*!
+ * @author electricessence / https://github.com/electricessence/
+ * Originally based upon: https://github.com/vwxyz/padding
+ * Licensing: MIT
+ */
 export declare function padStringLeft(source: string, minLength: number, pad?: string): string;
 export declare function padStringRight(source: string, minLength: number, pad?: string): string;
 export declare function padNumberLeft(source: number, minLength: number, pad?: string | number): string;
