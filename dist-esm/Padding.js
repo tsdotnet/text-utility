@@ -1,40 +1,34 @@
-"use strict";
 /*!
  * @author electricessence / https://github.com/electricessence/
  * Originally based upon: https://github.com/vwxyz/padding
  * Licensing: MIT
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-const Utility_1 = require("./Utility");
+import { EMPTY, repeat } from './Utility';
 const SPACE = ' ';
 const ZERO = '0';
-function padStringLeft(source, minLength, pad = SPACE) {
-    return pad && minLength > 0 ? Utility_1.repeat(pad, minLength - source.length) + source : source;
+export function padStringLeft(source, minLength, pad = SPACE) {
+    return pad && minLength > 0 ? repeat(pad, minLength - source.length) + source : source;
 }
-exports.padStringLeft = padStringLeft;
-function padStringRight(source, minLength, pad = SPACE) {
-    return pad && minLength > 0 ? source + Utility_1.repeat(pad, minLength - source.length) : source;
+export function padStringRight(source, minLength, pad = SPACE) {
+    return pad && minLength > 0 ? source + repeat(pad, minLength - source.length) : source;
 }
-exports.padStringRight = padStringRight;
-function padNumberLeft(source, minLength, pad = ZERO) {
+export function padNumberLeft(source, minLength, pad = ZERO) {
     // noinspection SuspiciousTypeOfGuard
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)
         source = 0;
-    return padStringLeft(source + Utility_1.EMPTY, minLength, pad + Utility_1.EMPTY);
+    return padStringLeft(source + EMPTY, minLength, pad + EMPTY);
 }
-exports.padNumberLeft = padNumberLeft;
-function padNumberRight(source, minLength, pad = ZERO) {
+export function padNumberRight(source, minLength, pad = ZERO) {
     // noinspection SuspiciousTypeOfGuard
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)
         source = 0;
-    return padStringRight(source + Utility_1.EMPTY, minLength, pad + Utility_1.EMPTY);
+    return padStringRight(source + EMPTY, minLength, pad + EMPTY);
 }
-exports.padNumberRight = padNumberRight;
-function padLeft(source, minLength, pad) {
+export function padLeft(source, minLength, pad) {
     switch (typeof source) {
         case 'string':
             return padStringLeft(source, minLength, pad);
@@ -43,8 +37,7 @@ function padLeft(source, minLength, pad) {
     }
     throw new Error('Invalid source type.');
 }
-exports.padLeft = padLeft;
-function padRight(source, minLength, pad) {
+export function padRight(source, minLength, pad) {
     switch (typeof source) {
         case 'string':
             return padStringRight(source, minLength, pad);
@@ -53,5 +46,4 @@ function padRight(source, minLength, pad) {
     }
     throw new Error('Invalid source type.');
 }
-exports.padRight = padRight;
 //# sourceMappingURL=Padding.js.map
