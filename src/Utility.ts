@@ -5,8 +5,6 @@
 
 export const EMPTY = '';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 /**
  * Returns a numerical (integer) hash code of the string.  Can be used for identifying inequality of contents, but two different strings in rare cases will have the same hash code.
  * @param source
@@ -14,7 +12,6 @@ export const EMPTY = '';
  */
 export function getHashCode (source: string): number
 {
-	/* tslint:disable:no-bitwise */
 	let hash = 0 | 0;
 	if(source.length===0) return hash;
 	for(let i = 0, l = source.length; i<l; i++)
@@ -105,7 +102,6 @@ export function trim (source: string, chars?: string | string[], ignoreCase?: bo
 	return source.replace(/^\s+|\s+$/g, EMPTY);
 }
 
-// noinspection SpellCheckingInspection
 /**
  * This takes a string and replaces '{string}' with the respected parameter.
  * Also allows for passing an array in order to use '{n}' notation.
