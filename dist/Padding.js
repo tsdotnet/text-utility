@@ -6,7 +6,6 @@
 import { EMPTY, repeat } from './Utility';
 const SPACE = ' ';
 const ZERO = '0';
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export function padStringLeft(source, minLength, pad = SPACE) {
     return pad && minLength > 0 ? repeat(pad, minLength - source.length) + source : source;
 }
