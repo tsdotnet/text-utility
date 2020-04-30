@@ -4,4 +4,4 @@
 ![npm-publish](https://github.com/tsdotnet/text-utility/workflows/npm-publish/badge.svg)
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/text-utility.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/text-utility)
 
-`text-utility<T>` and `Resettabletext-utility<T>` classes for simplifying text-utility initialization.
+A set of commonly used functions for minipulating and formatting strings. 
