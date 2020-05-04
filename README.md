@@ -5,3 +5,6 @@
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/text-utility.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/text-utility)
 
 A set of commonly used functions for manipulating and formatting strings. 
+
+## Docs
+[tsdotnet.github.io/text-utility](https://tsdotnet.github.io/text-utility/)
