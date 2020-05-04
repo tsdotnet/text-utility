@@ -19,8 +19,8 @@
     "ends with"
   ],
   "scripts": {
-    "clean": "rimraf dist/* && rimraf dist-esm/* && rimraf docs/*",
-    "build": "npm prune && npm install && npm run clean && copyfiles -u 1 src/**/*.d.ts dist && tsc && tsc -p tsconfig.esm.json && npm run docs",
+    "clean": "rimraf dist/* && rimraf dist-esm/*",
+    "build": "npm prune && npm install && npm run clean && copyfiles -u 1 src/**/*.d.ts dist && tsc && tsc -p tsconfig.esm.json",
     "bump": "npm run precommit && npm version patch",
     "docs": "rimraf docs/* && typedoc --out docs src",
     "lint": "eslint src/**/*.ts",
