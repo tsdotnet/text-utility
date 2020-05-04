@@ -21,10 +21,10 @@
   "scripts": {
     "clean": "rimraf dist/* && rimraf dist-esm/*",
     "build": "npm prune && npm install && npm run clean && copyfiles -u 1 src/**/*.d.ts dist && tsc && tsc -p tsconfig.esm.json",
-    "bump": "npm run precommit && git commit -m \"Updated docs.\" docs && npm version patch",
-    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --excludeNotExported --out docs src && node ./.build/create-nojekyll.js",
+    "bump": "npm run precommit && npm version patch && npm run docs && git commit -m \"Updated docs.\" docs",
+    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --excludeNotExported --includeDeclarations --version --out docs src && node ./.build/create-nojekyll.js",
     "lint": "eslint src/**/*.ts",
-    "precommit": "npm run lint && npm run test && npm run build && npm run validate && npm run docs",
+    "precommit": "npm run lint && npm run test && npm run build && npm run validate",
     "prepublishOnly": "npm run build && npm run validate && npm run test",
     "preversion": "npm run lint",
     "postversion": "git push && git push --tags",
