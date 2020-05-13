@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.padding = exports.textUtility = void 0;
 const tslib_1 = require("tslib");
 const textUtility = tslib_1.__importStar(require("./Utility"));
 exports.textUtility = textUtility;

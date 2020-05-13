@@ -5,6 +5,7 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.padRight = exports.padLeft = exports.padNumberRight = exports.padNumberLeft = exports.padStringRight = exports.padStringLeft = void 0;
 const Utility_1 = require("./Utility");
 const SPACE = ' ';
 const ZERO = '0';

@@ -4,6 +4,7 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.endsWith = exports.startsWith = exports.format = exports.supplant = exports.trim = exports.escapeRegExp = exports.fromChars = exports.repeat = exports.getHashCode = exports.EMPTY = void 0;
 exports.EMPTY = '';
 /**
  * Returns a numerical (integer) hash code of the string.  Can be used for identifying inequality of contents, but two different strings in rare cases will have the same hash code.
