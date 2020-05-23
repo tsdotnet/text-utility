@@ -25,14 +25,24 @@ export function getHashCode(source) {
  * @param count
  */
 export function repeat(source, count) {
+    if (source == null)
+        throw new Error('Cannot repeat null or undefined.');
+    // noinspection SuspiciousTypeOfGuard
+    if (typeof source !== 'string')
+        throw new TypeError('Expected \'source\' to be string.');
     let result = EMPTY;
-    if (!isNaN(count)) {
+    if (source !== '' && !isNaN(count)) {
         for (let i = 0; i < count; i++) {
             result += source;
         }
     }
     return result;
 }
+/**
+ * Repeats a character code to a string sequence.
+ * @param chOrChars
+ * @param count
+ */
 export function fromChars(chOrChars, count = 1) {
     if (chOrChars instanceof Array) {
         let result = EMPTY;

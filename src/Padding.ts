@@ -43,12 +43,12 @@ export function padNumberRight (
 
 export function padLeft (source: string, minLength: number, pad?: string): string;
 export function padLeft (source: number, minLength: number, pad?: string | number): string;
-export function padLeft (source: string | number, minLength: number, pad?: any): string
+export function padLeft (source: string | number, minLength: number, pad?: string | number): string
 {
 	switch(typeof source)
 	{
 		case 'string':
-			return padStringLeft(source, minLength, pad);
+			return padStringLeft(source, minLength, pad as any);
 		case 'number':
 			return padNumberLeft(source, minLength, pad);
 	}
@@ -57,12 +57,12 @@ export function padLeft (source: string | number, minLength: number, pad?: any):
 
 export function padRight (source: string, minLength: number, pad?: string): string;
 export function padRight (source: number, minLength: number, pad?: string | number): string;
-export function padRight (source: string | number, minLength: number, pad?: any): string
+export function padRight (source: string | number, minLength: number, pad?: string | number): string
 {
 	switch(typeof source)
 	{
 		case 'string':
-			return padStringRight(source, minLength, pad);
+			return padStringRight(source, minLength, pad as any);
 		case 'number':
 			return padNumberRight(source, minLength, pad);
 	}

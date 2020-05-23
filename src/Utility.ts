@@ -30,8 +30,11 @@ export function getHashCode (source: string): number
  */
 export function repeat (source: string, count: number): string
 {
+	if(source==null) throw new Error('Cannot repeat null or undefined.');
+	// noinspection SuspiciousTypeOfGuard
+	if(typeof source!=='string') throw new TypeError('Expected \'source\' to be string.');
 	let result = EMPTY;
-	if(!isNaN(count))
+	if(source!=='' && !isNaN(count))
 	{
 		for(let i = 0; i<count; i++)
 		{
@@ -52,7 +55,13 @@ export function fromChars (char: number, count: number): string;
  * @param chars
  */
 export function fromChars (chars: number[]): string;
-export function fromChars (chOrChars: any, count: number = 1): string
+
+/**
+ * Repeats a character code to a string sequence.
+ * @param chOrChars
+ * @param count
+ */
+export function fromChars (chOrChars: number | number[], count: number = 1): string
 {
 	if(chOrChars instanceof Array)
 	{

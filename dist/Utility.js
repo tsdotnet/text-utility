@@ -29,8 +29,13 @@ exports.getHashCode = getHashCode;
  * @param count
  */
 function repeat(source, count) {
+    if (source == null)
+        throw new Error('Cannot repeat null or undefined.');
+    // noinspection SuspiciousTypeOfGuard
+    if (typeof source !== 'string')
+        throw new TypeError('Expected \'source\' to be string.');
     let result = exports.EMPTY;
-    if (!isNaN(count)) {
+    if (source !== '' && !isNaN(count)) {
         for (let i = 0; i < count; i++) {
             result += source;
         }
@@ -38,6 +43,11 @@ function repeat(source, count) {
     return result;
 }
 exports.repeat = repeat;
+/**
+ * Repeats a character code to a string sequence.
+ * @param chOrChars
+ * @param count
+ */
 function fromChars(chOrChars, count = 1) {
     if (chOrChars instanceof Array) {
         let result = exports.EMPTY;
