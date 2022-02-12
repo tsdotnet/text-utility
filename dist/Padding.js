@@ -10,11 +10,11 @@ const Utility_1 = require("./Utility");
 const SPACE = ' ';
 const ZERO = '0';
 function padStringLeft(source, minLength, pad = SPACE) {
-    return pad && minLength > 0 ? Utility_1.repeat(pad, minLength - source.length) + source : source;
+    return pad && minLength > 0 ? (0, Utility_1.repeat)(pad, minLength - source.length) + source : source;
 }
 exports.padStringLeft = padStringLeft;
 function padStringRight(source, minLength, pad = SPACE) {
-    return pad && minLength > 0 ? source + Utility_1.repeat(pad, minLength - source.length) : source;
+    return pad && minLength > 0 ? source + (0, Utility_1.repeat)(pad, minLength - source.length) : source;
 }
 exports.padStringRight = padStringRight;
 function padNumberLeft(source, minLength, pad = ZERO) {
