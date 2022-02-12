@@ -1,8 +1,5 @@
 {
   "entryPoints": [
-    "./src"
-  ],
-  "exclude": [
     "./src/index.ts"
   ],
   "out": "docs",
