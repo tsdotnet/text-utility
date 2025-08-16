@@ -4,7 +4,16 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.endsWith = exports.startsWith = exports.format = exports.supplant = exports.trim = exports.escapeRegExp = exports.fromChars = exports.repeat = exports.getHashCode = exports.EMPTY = void 0;
+exports.EMPTY = void 0;
+exports.getHashCode = getHashCode;
+exports.repeat = repeat;
+exports.fromChars = fromChars;
+exports.escapeRegExp = escapeRegExp;
+exports.trim = trim;
+exports.supplant = supplant;
+exports.format = format;
+exports.startsWith = startsWith;
+exports.endsWith = endsWith;
 exports.EMPTY = '';
 /**
  * Returns a numerical (integer) hash code of the string.  Can be used for identifying inequality of contents, but two different strings in rare cases will have the same hash code.
@@ -22,7 +31,6 @@ function getHashCode(source) {
     }
     return hash;
 }
-exports.getHashCode = getHashCode;
 /**
  * Repeats a sequence of characters.
  * @param source
@@ -42,7 +50,6 @@ function repeat(source, count) {
     }
     return result;
 }
-exports.repeat = repeat;
 /**
  * Repeats a character code to a string sequence.
  * @param chOrChars
@@ -60,7 +67,6 @@ function fromChars(chOrChars, count = 1) {
         return repeat(String.fromCharCode(chOrChars), count);
     }
 }
-exports.fromChars = fromChars;
 /**
  * Escapes a RegExp sequence.
  * @param source
@@ -69,7 +75,6 @@ exports.fromChars = fromChars;
 function escapeRegExp(source) {
     return source.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&');
 }
-exports.escapeRegExp = escapeRegExp;
 /**
  * Can trim any character or set of characters from the ends of a string.
  * Uses a Regex escapement to replace them with empty.
@@ -87,7 +92,6 @@ function trim(source, chars, ignoreCase) {
     }
     return source.replace(/^\s+|\s+$/g, exports.EMPTY);
 }
-exports.trim = trim;
 /**
  * This takes a string and replaces '{string}' with the respected parameter.
  * Also allows for passing an array in order to use '{n}' notation.
@@ -117,7 +121,6 @@ function supplant(source, params) {
         }
     });
 }
-exports.supplant = supplant;
 /**
  * This takes a string and replaces '{0}' with the first parameter, '{1} the second, and so on..
  * Not limited to indexes indexes.  For example, {length} is allowed as the number of params.
@@ -128,7 +131,6 @@ exports.supplant = supplant;
 function format(source, ...args) {
     return supplant(source, args);
 }
-exports.format = format;
 function canMatch(source, match) {
     // noinspection SuspiciousTypeOfGuard
     if (typeof source != 'string' || !match)
@@ -148,7 +150,6 @@ function startsWith(source, pattern) {
     const m = canMatch(source, pattern);
     return typeof m == 'boolean' ? m : source.indexOf(pattern) === 0;
 }
-exports.startsWith = startsWith;
 /**
  * Returns true if the pattern matches the end of the source.
  * @param source
@@ -159,5 +160,4 @@ function endsWith(source, pattern) {
     const m = canMatch(source, pattern);
     return typeof m == 'boolean' ? m : source.lastIndexOf(pattern) === source.length - pattern.length;
 }
-exports.endsWith = endsWith;
 //# sourceMappingURL=Utility.js.map
