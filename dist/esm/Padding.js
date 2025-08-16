@@ -1,34 +1,42 @@
+"use strict";
 /*!
  * @author electricessence / https://github.com/electricessence/
  * Originally based upon: https://github.com/vwxyz/padding
  * Licensing: MIT
  */
-import { EMPTY, repeat } from './Utility';
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.padStringLeft = padStringLeft;
+exports.padStringRight = padStringRight;
+exports.padNumberLeft = padNumberLeft;
+exports.padNumberRight = padNumberRight;
+exports.padLeft = padLeft;
+exports.padRight = padRight;
+const Utility_1 = require("./Utility");
 const SPACE = ' ';
 const ZERO = '0';
-export function padStringLeft(source, minLength, pad = SPACE) {
-    return pad && minLength > 0 ? repeat(pad, minLength - source.length) + source : source;
+function padStringLeft(source, minLength, pad = SPACE) {
+    return pad && minLength > 0 ? (0, Utility_1.repeat)(pad, minLength - source.length) + source : source;
 }
-export function padStringRight(source, minLength, pad = SPACE) {
-    return pad && minLength > 0 ? source + repeat(pad, minLength - source.length) : source;
+function padStringRight(source, minLength, pad = SPACE) {
+    return pad && minLength > 0 ? source + (0, Utility_1.repeat)(pad, minLength - source.length) : source;
 }
-export function padNumberLeft(source, minLength, pad = ZERO) {
+function padNumberLeft(source, minLength, pad = ZERO) {
     // noinspection SuspiciousTypeOfGuard
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)
         source = 0;
-    return padStringLeft(source + EMPTY, minLength, pad + EMPTY);
+    return padStringLeft(source + Utility_1.EMPTY, minLength, pad + Utility_1.EMPTY);
 }
-export function padNumberRight(source, minLength, pad = ZERO) {
+function padNumberRight(source, minLength, pad = ZERO) {
     // noinspection SuspiciousTypeOfGuard
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)
         source = 0;
-    return padStringRight(source + EMPTY, minLength, pad + EMPTY);
+    return padStringRight(source + Utility_1.EMPTY, minLength, pad + Utility_1.EMPTY);
 }
-export function padLeft(source, minLength, pad) {
+function padLeft(source, minLength, pad) {
     switch (typeof source) {
         case 'string':
             return padStringLeft(source, minLength, pad);
@@ -37,7 +45,7 @@ export function padLeft(source, minLength, pad) {
     }
     throw new Error('Invalid source type.');
 }
-export function padRight(source, minLength, pad) {
+function padRight(source, minLength, pad) {
     switch (typeof source) {
         case 'string':
             return padStringRight(source, minLength, pad);
