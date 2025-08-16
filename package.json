@@ -1,6 +1,6 @@
 {
   "name": "@tsdotnet/text-utility",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A set of commonly used functions for manipulating and formatting strings.",
   "author": "electricessence",
   "license": "MIT",
