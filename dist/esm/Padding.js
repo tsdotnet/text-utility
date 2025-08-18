@@ -1,34 +1,33 @@
+import { repeat, EMPTY } from './Utility.js';
+
 /*!
  * @author electricessence / https://github.com/electricessence/
  * Originally based upon: https://github.com/vwxyz/padding
  * Licensing: MIT
  */
-import { EMPTY, repeat } from './Utility';
 const SPACE = ' ';
 const ZERO = '0';
-export function padStringLeft(source, minLength, pad = SPACE) {
+function padStringLeft(source, minLength, pad = SPACE) {
     return pad && minLength > 0 ? repeat(pad, minLength - source.length) + source : source;
 }
-export function padStringRight(source, minLength, pad = SPACE) {
+function padStringRight(source, minLength, pad = SPACE) {
     return pad && minLength > 0 ? source + repeat(pad, minLength - source.length) : source;
 }
-export function padNumberLeft(source, minLength, pad = ZERO) {
-    // noinspection SuspiciousTypeOfGuard
+function padNumberLeft(source, minLength, pad = ZERO) {
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)
         source = 0;
     return padStringLeft(source + EMPTY, minLength, pad + EMPTY);
 }
-export function padNumberRight(source, minLength, pad = ZERO) {
-    // noinspection SuspiciousTypeOfGuard
+function padNumberRight(source, minLength, pad = ZERO) {
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)
         source = 0;
     return padStringRight(source + EMPTY, minLength, pad + EMPTY);
 }
-export function padLeft(source, minLength, pad) {
+function padLeft(source, minLength, pad) {
     switch (typeof source) {
         case 'string':
             return padStringLeft(source, minLength, pad);
@@ -37,7 +36,7 @@ export function padLeft(source, minLength, pad) {
     }
     throw new Error('Invalid source type.');
 }
-export function padRight(source, minLength, pad) {
+function padRight(source, minLength, pad) {
     switch (typeof source) {
         case 'string':
             return padStringRight(source, minLength, pad);
@@ -46,4 +45,6 @@ export function padRight(source, minLength, pad) {
     }
     throw new Error('Invalid source type.');
 }
+
+export { padLeft, padNumberLeft, padNumberRight, padRight, padStringLeft, padStringRight };
 //# sourceMappingURL=Padding.js.map

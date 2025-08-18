@@ -21,7 +21,6 @@ function padStringRight(source, minLength, pad = SPACE) {
     return pad && minLength > 0 ? source + (0, Utility_1.repeat)(pad, minLength - source.length) : source;
 }
 function padNumberLeft(source, minLength, pad = ZERO) {
-    // noinspection SuspiciousTypeOfGuard
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)
@@ -29,7 +28,6 @@ function padNumberLeft(source, minLength, pad = ZERO) {
     return padStringLeft(source + Utility_1.EMPTY, minLength, pad + Utility_1.EMPTY);
 }
 function padNumberRight(source, minLength, pad = ZERO) {
-    // noinspection SuspiciousTypeOfGuard
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)

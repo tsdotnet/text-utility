@@ -1,4 +1,4 @@
-import {expect} from 'chai';
+import { describe, it, expect } from 'vitest';
 import * as TextUtility from '../src/Utility';
 
 const s1 = '	 HI  ';
@@ -46,13 +46,13 @@ describe('.startsWith(source,pattern)', () => {
 		expect(TextUtility.startsWith(
 			'Hello, my name is',
 			'Hello'))
-			.to.be.true
+			.toBe(true)
 	);
 	it('should not detect pattern at beginning', () =>
 		expect(!TextUtility.startsWith(
 			'Hello, my name is',
 			'is'))
-			.to.be.true
+			.toBe(true)
 	);
 });
 
@@ -61,18 +61,18 @@ describe('.endsWith(source,pattern)', () => {
 		expect(TextUtility.endsWith(
 			'Hello, my name is',
 			'is'))
-			.to.be.true
+			.toBe(true)
 	);
 	it('should not detect pattern at beginning', () => {
 			expect(!TextUtility.endsWith(
 				'Hello, my name is',
 				'Hello'))
-				.to.be.true;
+				.toBe(true);
 
 			expect(!TextUtility.endsWith(
 				'Hello, my name is',
 				'is '))
-				.to.be.true;
+				.toBe(true);
 		}
 	);
 });

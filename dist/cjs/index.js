@@ -6,7 +6,6 @@ const textUtility = tslib_1.__importStar(require("./Utility"));
 exports.textUtility = textUtility;
 const padding = tslib_1.__importStar(require("./Padding"));
 exports.padding = padding;
-// Re-export all utility functions individually for easy access
 var Utility_1 = require("./Utility");
 Object.defineProperty(exports, "EMPTY", { enumerable: true, get: function () { return Utility_1.EMPTY; } });
 Object.defineProperty(exports, "getHashCode", { enumerable: true, get: function () { return Utility_1.getHashCode; } });
@@ -18,7 +17,6 @@ Object.defineProperty(exports, "supplant", { enumerable: true, get: function () 
 Object.defineProperty(exports, "format", { enumerable: true, get: function () { return Utility_1.format; } });
 Object.defineProperty(exports, "startsWith", { enumerable: true, get: function () { return Utility_1.startsWith; } });
 Object.defineProperty(exports, "endsWith", { enumerable: true, get: function () { return Utility_1.endsWith; } });
-// Re-export all padding functions individually  
 var Padding_1 = require("./Padding");
 Object.defineProperty(exports, "padStringLeft", { enumerable: true, get: function () { return Padding_1.padStringLeft; } });
 Object.defineProperty(exports, "padStringRight", { enumerable: true, get: function () { return Padding_1.padStringRight; } });
