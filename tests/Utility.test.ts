@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import * as TextUtility from '../src/Utility';
+import * as TextUtility from '../src/Utility.js';
 
 const s1 = '	 HI  ';
 const s2 = '.-.-xHIX//\\';

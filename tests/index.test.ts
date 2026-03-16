@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import * as TextUtilityModule from '../src/index';
+import * as TextUtilityModule from '../src/index.js';
 
 describe('index module exports', () => {
 	it('should export all utility functions individually', () => {

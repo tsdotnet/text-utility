@@ -1,5 +1,5 @@
-import * as textUtility from './Utility';
-import * as padding from './Padding';
+import * as textUtility from './Utility.js';
+import * as padding from './Padding.js';
 
 // Re-export all utility functions individually for easy access
 export {
@@ -13,7 +13,7 @@ export {
 	format,
 	startsWith,
 	endsWith
-} from './Utility';
+} from './Utility.js';
 
 // Re-export all padding functions individually  
 export {
@@ -23,7 +23,7 @@ export {
 	padNumberRight,
 	padLeft,
 	padRight
-} from './Padding';
+} from './Padding.js';
 
 // Also export as namespaces for those who prefer that approach
 export {

@@ -6,7 +6,7 @@ import {
 	padStringRight, 
 	padNumberLeft, 
 	padNumberRight
-} from '../src/Padding';
+} from '../src/Padding.js';
 
 describe('padStringLeft()', () => {
 	it('should pad string to the left', () => {

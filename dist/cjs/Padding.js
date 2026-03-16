@@ -11,28 +11,28 @@ exports.padNumberLeft = padNumberLeft;
 exports.padNumberRight = padNumberRight;
 exports.padLeft = padLeft;
 exports.padRight = padRight;
-const Utility_1 = require("./Utility");
+const Utility_js_1 = require("./Utility.js");
 const SPACE = ' ';
 const ZERO = '0';
 function padStringLeft(source, minLength, pad = SPACE) {
-    return pad && minLength > 0 ? (0, Utility_1.repeat)(pad, minLength - source.length) + source : source;
+    return pad && minLength > 0 ? (0, Utility_js_1.repeat)(pad, minLength - source.length) + source : source;
 }
 function padStringRight(source, minLength, pad = SPACE) {
-    return pad && minLength > 0 ? source + (0, Utility_1.repeat)(pad, minLength - source.length) : source;
+    return pad && minLength > 0 ? source + (0, Utility_js_1.repeat)(pad, minLength - source.length) : source;
 }
 function padNumberLeft(source, minLength, pad = ZERO) {
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)
         source = 0;
-    return padStringLeft(source + Utility_1.EMPTY, minLength, pad + Utility_1.EMPTY);
+    return padStringLeft(source + Utility_js_1.EMPTY, minLength, pad + Utility_js_1.EMPTY);
 }
 function padNumberRight(source, minLength, pad = ZERO) {
     if (typeof source != 'number')
         throw new Error('Cannot pad non-number.');
     if (!source)
         source = 0;
-    return padStringRight(source + Utility_1.EMPTY, minLength, pad + Utility_1.EMPTY);
+    return padStringRight(source + Utility_js_1.EMPTY, minLength, pad + Utility_js_1.EMPTY);
 }
 function padLeft(source, minLength, pad) {
     switch (typeof source) {

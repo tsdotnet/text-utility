@@ -4,7 +4,7 @@
  * Licensing: MIT
  */
 
-import {EMPTY, repeat} from './Utility';
+import {EMPTY, repeat} from './Utility.js';
 
 const SPACE = ' ';
 const ZERO = '0';
