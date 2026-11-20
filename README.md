@@ -1,4 +1,4 @@
-![@tsdotnet/text-utility: Text helpers, ready. Format, pad, trim, repeat.](https://cdn.jsdelivr.net/gh/tsdotnet/text-utility@master/assets/banner.svg)
+<a name="banner"><img src="https://cdn.jsdelivr.net/gh/tsdotnet/text-utility@master/assets/banner.svg" alt="@tsdotnet/text-utility: Text helpers, ready. Format, pad, trim, repeat."></a>
 
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/text-utility.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/text-utility)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/tsdotnet/text-utility/blob/master/LICENSE)
